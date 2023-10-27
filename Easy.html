@@ -1,0 +1,64 @@
+ <!-- Easy.html -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Christmas Matches</title>
+     <link rel="stylesheet" href="style.css">
+     <script src="https://kit.fontawesome.com/52177094a7.js" crossorigin="anonymous"></script>
+     <link rel="apple-touch-icon" sizes="180x180" href="favicon/favicon.ico">
+     <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&display=swap" rel="stylesheet">     
+     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+     <link rel="icon" type="image/png" sizes="16x16" href="favicon//favicon-16x16.png">
+     <link rel="manifest" href="/site.webmanifest">
+ <head>
+     <body>
+     <div id="container" style="justify-items: center;">
+        <header class="header">
+            <h1 style="margin-bottom: -10px;"> <span class="decoration">Christmas</span><span class="decoration">Matches</span></h1>
+            <p style="text-align: center; font-size: 24px; margin: 0 auto;">Level : Beginner</p>
+        </header>
+        <section class="score-panel">
+            <ul id="star-rating" class="star-rating">
+                <li class="star"><i class="fa fa-star"></i></li>
+                <li class="star"><i class="fa fa-star"></i></li>
+                <li class="star"><i class="fa fa-star"></i></li>
+            </ul>
+
+            <h3 class="moves moves-header">Moves: <span class="moves-counter">0</span></h3>
+
+            <div class="timer-container">
+                <h3 class="timer">
+                    <i class="far fa-clock"></i> 
+                    <span class="timer-header">Time: </span>00:00</h3>
+            </div>
+            <div class="reset">
+                <button class="btn reset-btn" style="display: inline-block; background: linear-gradient(45deg, #f7b733, #fc4a1a); color: #ffffff; padding: 10px 20px; border-radius: 30px; border: none; text-decoration: none; font-weight: bold; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; margin: 5px;font-size: 20px;">Reset<i class="fa fa-repeat" style="display: none;"></i></button>
+            </div>
+        </section>
+        <ul class="deck" style="justify-items: center;"></ul>
+    </div>
+   <!-- Modal section - only appears when game is complete -->
+   <!-- Modal section - only appears when game is complete or lost -->
+<section class="win-game-modal">
+    <div id="modal" class="modal">
+        <!-- Modal content to provide feedback -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Happy Halloween!</h2>
+            <p>Against all odds, you've escaped the ghostly grasp by matching all the cards.</p>
+            <p>Ghastly Game Summary</p>
+            <!-- <img class="modal-img" src="images/game-win.jpeg" alt="Game complete"> -->
+            <button class="btn play-again-btn">Dare to Play Again?</button>
+				  
+        </div>
+    </div>
+</section>
+
+
+<div id="darkeningOverlay"></div>
+<script src="script.js"></script>
+
+</body>
+</html>

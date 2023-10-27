@@ -1,37 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MS2 - Memory Game</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/52177094a7.js" crossorigin="anonymous"></script>
-    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon//favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Christmas Matches</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/52177094a7.js" crossorigin="anonymous"></script>
+        <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/favicon.ico">
+        <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Lobster&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="images/favicon//favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+      </head>
 <body>
 
-<div class="outer-container-home">
+    <div class="outer-container-home">
     <div class="inner-container-home">
-        <h2>How To Play</h2>
-        <img class="home-img" src="images/chick.svg" alt="image of a chick">
-        <p>- There are 16 cards, 8 matching pairs.</p>
-        <p>- Click on a card to reveal image behind it.</p>
-        <p>- Match the 8 pairs of cards in as few moves and as little time as possible</p>
-        <select id="difficultyLevel">
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>
-        </select>        
-        <a class="start" href="home.html">Start Game</a>
+        <h1 style="font-size: 70px; ">Christmas Matches</h1>
+        <h2>Rules</h2>
+        <img class="home-img" src="images/bells.png" alt="image of a skeleton">
+        <p>- Welcome to the festive season of Christmas</p>
+        <p>- Three stages await you</p>
+
+        <!-- Added buttons -->
+        <div class="level-buttons">
+            <button class="level" onclick="location.href='easy.html'">Beginner</button>
+            <button class="level" onclick="location.href='medium.html'">Moderate</button>
+            <button class="level" onclick="location.href='hard.html'">Difficult</button>
+
+        </div>
+        <p>- Match the pairs to receive a special gift from our very own Santa</p>
+        <p>- Complete all matches in minimal moves and time to emerge victorious.</p>
+        <a class="start" href="easy.html">Start Game</a>
     </div>
 </div>
 
-<!-- Place your script tag here, after the body content -->
-<script src="script.js"></script>
-
+    
 </body>
 </html>
