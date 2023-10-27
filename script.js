@@ -1,4 +1,4 @@
-window.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
   // declaring some global variables
 
   // array of images to be stored in the individual cards
@@ -42,6 +42,22 @@ window.addEventListener("DOMContentLoaded", function() {
   let minutes = 0;
   let seconds = 0;
   let timeStart = false;
+  let timerInterval;
+  let startTime;
+  let elapsedTime = 0;
+  let cardCount = 12;  // Default is set to 'easy' for demonstration. Adjust as needed.
+  let hintCount = 3;  // or whatever number you deem appropriate
+
+
+  document.getElementById('difficultyLevel').addEventListener('change', function() {
+    const selectedDifficulty = this.value;
+    setCardCount(selectedDifficulty);
+    
+    // Optionally, you can restart the game to apply the new difficulty.
+    startGame(); // Assuming 'startGame()' initializes or restarts your game.
+  });
+
+
 
   /* create a function that shuffles the array every time the game is started
   function will have a random number, a temporary variable which will be storing the value of the array at the current iteration
@@ -64,12 +80,30 @@ window.addEventListener("DOMContentLoaded", function() {
     return arr;
   }
 
+  function setCardCount(difficulty) {
+    switch(difficulty) {
+        case "easy":
+            cardCount = 12; // e.g., 6 pairs
+            break;
+        case "medium":
+            cardCount = 20; // e.g., 10 pairs
+            break;
+        case "hard":
+            cardCount = 30; // e.g., 15 pairs
+            break;
+        default:
+            cardCount = 12;
+            break;
+    }
+  }
+  
+
   function startGame() {
     // Invoke shuffle function created earlier and store in variable
     const shuffledDeck = shuffle(deckCards);
 
     // Iterate over deck of cards array
-    for (let i = 0; i < shuffledDeck.length; i++) {
+    for (let i = 0; i < cardCount; i++) {
       // at each iteration, create a <li> tag
       const liTag = document.createElement("li");
       // Give <li> class of card
@@ -106,30 +140,57 @@ window.addEventListener("DOMContentLoaded", function() {
     }
   }
 
-  /* Update the timer in the HTML for minutes and seconds
-  The timer function is called in the event listener the first time a card is clicked. */
-  function timer() {
-    // Update the count every 1 second
-    time = setInterval(function() {
-      seconds++;
-      if (seconds === 60) {
-        minutes++;
-        seconds = 0;
-      }
+  function startTimer() {
+    startTime = new Date().getTime();
+    timerInterval = setInterval(function() {
+        elapsedTime = new Date().getTime() - startTime;
+        let totalSeconds = Math.floor(elapsedTime / 1000);
+        let millis = elapsedTime % 1000;
+        let mins = Math.floor(totalSeconds / 60);
+        let secs = totalSeconds % 60;
+        document.getElementById('timer').innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}.${millis.toString().padStart(3, '0')}`;
+    }, 100);
+}
 
-      // Update the timer in HTML with the time it takes the user to play the game
-      if (screen.width <= 500) {
-        timeCounter.innerHTML = `<i class='fa fa-clock'></i> ${minutes} Mins ${seconds} Secs`;
-      } else {
-        timeCounter.innerHTML = `<i class='fa fa-clock' style="color: orange;"></i><strong style="color: orange;"> Time:</strong> ${minutes} Minutes ${seconds} Seconds`;
-      }
-    }, 1000);
-  }
 
-  // Create a function that stops the timer once all 16 cards are matched.
-  function stopTime() {
-    clearInterval(time);
-  }
+  // /* Update the timer in the HTML for minutes and seconds
+  // The timer function is called in the event listener the first time a card is clicked. */
+  // function timer() {
+  //   // Update the count every 1 second
+  //   time = setInterval(function() {
+  //     seconds++;
+  //     if (seconds === 60) {
+  //       minutes++;
+  //       seconds = 0;
+  //     }
+
+  //     // Update the timer in HTML with the time it takes the user to play the game
+  //     if (screen.width <= 500) {
+  //       timeCounter.innerHTML = `<i class='fa fa-clock'></i> ${minutes} Mins ${seconds} Secs`;
+  //     } else {
+  //       timeCounter.innerHTML = `<i class='fa fa-clock' style="color: orange;"></i><strong style="color: orange;"> Time:</strong> ${minutes} Minutes ${seconds} Seconds`;
+  //     }
+  //   }, 1000);
+  // // }
+
+  // // Create a function that stops the timer once all 16 cards are matched.
+  // function stopTime() {
+  //   clearInterval(time);
+  // }
+
+//   function startTimer() {
+//     startTime = new Date().getTime();
+//     timerInterval = setInterval(function() {
+//         elapsedTime = new Date().getTime() - startTime;
+//         document.getElementById('timer').innerText = (elapsedTime / 1000).toFixed(2) + ' seconds';
+//     }, 100);
+//   }
+
+// function stopTimer() {
+//     clearInterval(timerInterval);
+//   }
+
+
 
   // Create a function that resets all global variables and the content of HTML elements (timer, stars, moves, and their innerHTML)
   function resetEverything() {
@@ -324,6 +385,45 @@ window.addEventListener("DOMContentLoaded", function() {
       }
     };
   }
+
+  function giveHint() {
+    if (hintCount <= 0) {
+        alert('No more hints left!');
+        return;
+    }
+
+    // Find a pair of cards that haven't been matched yet
+    const unmatchedCards = [];  // Array to store indices of unmatched cards
+    for (let i = 0; i < deck.length; i++) {
+        if (!deck[i].isMatched) {  // Assuming each card object in the deck has an 'isMatched' property
+            unmatchedCards.push(i);
+        }
+    }
+
+    if (unmatchedCards.length < 2) {
+        alert('No unmatched pairs left!');
+        return;
+    }
+
+    // Randomly pick one of the unmatched pairs
+    const randomIndex = Math.floor(Math.random() * (unmatchedCards.length / 2)) * 2;
+    const hintCard1 = unmatchedCards[randomIndex];
+    const hintCard2 = unmatchedCards[randomIndex + 1];
+
+    // Temporarily reveal the cards to the player
+    revealCard(hintCard1);
+    revealCard(hintCard2);
+
+    setTimeout(() => {
+        hideCard(hintCard1);
+        hideCard(hintCard2);
+    }, 1000);  // Show the cards for 1 second
+
+    hintCount--;  // Decrement the hint count
+    updateHintCountDisplay();  // Update the displayed hint count for the player
+  }
+
+  document.getElementById('hintButton').addEventListener('click', giveHint);
 
   /* function used Check the length of the matched array and if there are 8 pairs 16 cards 
   all together then the game is won.
