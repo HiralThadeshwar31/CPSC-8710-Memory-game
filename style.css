@@ -257,7 +257,7 @@ p::before, p::after {
 header {
   grid-area: header;
   margin: 15px 0;
-  font-family: "Exo 2", cursive;
+  font-family: "Verdana", serif;
   letter-spacing: 1px;
   font-size: 1.5em;
   color: orange;
@@ -288,7 +288,7 @@ header {
   justify-items: center;
   align-items: center;
   padding: 20px;
-  font-family: "Exo 2", sans-serif;
+  font-family: "Verdana", serif;
 }
 
 #star-rating {
@@ -327,7 +327,7 @@ header {
 
 .moves {
   grid-area: moves;
-  font-family: 'Chiller', cursive; /* Halloween inspired font */
+  font-family: "Verdana", serif; /* Halloween inspired font */
   color: #FF4500; /* Red-Orange */
   font-size: 30px;
   text-shadow: 2px 2px 4px #000;
@@ -355,7 +355,7 @@ header {
 }
 
 .timer {
-    font-family: 'Chiller', cursive; /* Halloween inspired font */
+    font-family: "Verdana", serif; /* Halloween inspired font */
     color: white; /* LimeGreen for timer text */
     font-size: 30px;
     text-shadow: 2px 2px 4px #000;
@@ -453,7 +453,7 @@ header {
 
 .card {
   background-color: rgba(86, 7, 115, 0.7);
-  background-image: url("images/Pumpkin.svg");
+  background-image: url("images/art-6826996_1280.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -466,13 +466,13 @@ header {
   justify-items: center;
   box-shadow: 0 0 10px rgba(255, 165, 0, 0.7), 0 0 10px rgba(255, 165, 0, 0.7) inset; /* Orange glow for Halloween theme */
   transition: all 0.3s ease; /* Smooth transition effect on hover */
-  animation: float 3s infinite alternate;
+  /* animation: float 3s infinite alternate; */
   margin-bottom: 0;
 }
 
 .card:hover {
   background-color: #0d6610;
-  background-image: url("images/Pumpkin.svg");
+  background-image: url("images/art-6826996_1280.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 40%;
