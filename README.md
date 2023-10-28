@@ -34,7 +34,7 @@ As part of our Foundations of Software Engineering coursework, we have created a
 
 ## Instructions
 
-* Select your preferred difficulty level (Easy, Medium, Hard) to initiate the game.
+* Select your preferred difficulty level (Easy, Medium, Difficult) to initiate the game.
 
 * Click on the blocks to unveil the images hidden behind them. Continue this process with the remaining blocks, aiming to discover matching pairs.
 
