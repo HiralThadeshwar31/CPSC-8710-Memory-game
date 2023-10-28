@@ -10,7 +10,7 @@
 * [Features](#features) 
 * [Technologies Used](#technologies-used) 
 * [Testing](#testing) 
-* [Deployment](#deployment) 
+* [Setup Instructions for Local](#Setup-Instructions-for-Local) 
 * [Acknowledgements](#credits)
 
 ***
@@ -56,11 +56,6 @@ The index page is equipped with a modal providing instructions on how to play th
 The game page itself is inclusive of a header and a score panel that monitors various performance metrics, including time, moves, and the user's current star rating, which is determined by their performance. Additionally, a reset button is available to allow users to restart the game.
 
 The game board is constructed using a card deck that adapts according to the selected difficulty level. These cards are generated dynamically through JavaScript. Each card is designed with a front and back face. When a user hovers over a card, its background brightens, and upon clicking, the card flips to reveal an image. It is crucial for players to memorize these images in order to enhance their performance.
-
-
-<p align="center">
-   <img src="images/palette.png" alt="screenshot of colour palette"/>
-</p>
 
 Upon successfully completing the game, a "Win-Game" Modal emerges at the center of the screen, delivering feedback on the user's grade, star rating, and the time taken to finish the game.
 
