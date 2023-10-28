@@ -12,6 +12,7 @@
 * [Testing](#testing) 
 * [Setup Instructions for Local](#Setup-Instructions-for-Local) 
 * [Acknowledgements](#credits)
+* [Authors](#authors)
 
 ***
 
@@ -215,3 +216,8 @@ As a backup to using Chrome developer tools to check for responsiveness across m
 * Flip Cards based on [W3C flip card tutorial](https://www.w3schools.com/howto/howto_css_flip_card.asp)
 * [SVG Backgrounds](https://www.svgbackgrounds.com/) for free customisable SVG Backgrounds.
 * [CSS gradient generator](https://cssgradient.io/)
+
+## Authors
+
+* [Hiral Thadeshwar](https://github.com/HiralThadeshwar31)
+* [Lakhan Chauhan](https://github.com/lchauha)
