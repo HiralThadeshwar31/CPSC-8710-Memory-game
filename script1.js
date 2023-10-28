@@ -10,11 +10,10 @@ const overlay = document.getElementById('darkeningOverlay');
     }, 5000);
   // array of images to be stored in the individual cards
   const deckCards = ["santa.png", "snowflake.jpg","christmas_bell.jpg", "christmas-tree.jpg", "candy-cane2.jpg", 
-  "snowman2.png", "grinch.png", "glove.jpg","bell.png","candycane.png","snowman.png","christmastree2.jpg","christmastree.jpg", 
-  "house.png", "sock.png", "reindeer.png", "deer.png", "santahat.png", "reindeer2.png", "reindeer3.png", "cute.png", "penguin.png", "ring.png", "star.png", 
-  "christmas.png", "reindeer4.png" ];
+  "snowman2.png", "grinch.png", "glove.jpg","bell.png","candycane.png","house.png", "sock.png", "reindeer.png","santa.png", "snowflake.jpg","christmas_bell.jpg", "christmas-tree.jpg", "candy-cane2.jpg", 
+  "snowman2.png", "grinch.png", "glove.jpg","bell.png","candycane.png","house.png", "sock.png", "reindeer.png",];
     // selecting <ul> with class of deck
-    const deck = document.querySelector(".deck");
+    const deck = document.querySelector(".deck")
   
     // empty array to store openedCards cards
     let openedCards = [];
