@@ -22,7 +22,7 @@
 As part of our Foundations of Software Engineering coursework, we have created a web-based memory game called "Christmas Matches" with a Christmas theme. The primary goal of this game is to evaluate a player's memory skills. It involves a deck of cards, each featuring a randomly assigned image. Players need to click on a card to reveal the image, memorize its location, and then match cards with identical images until all pairs have been successfully matched.
 
 <p align="center">
-  <img src="/images/image.png" width="350" title="hover text">
+  <img src="/images/image.png">
 </p>
 
  ## Challenge
