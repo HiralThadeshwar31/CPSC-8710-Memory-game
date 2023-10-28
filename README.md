@@ -19,7 +19,7 @@
 
 ## About   
 
-This is a simple Memory Game Web Application created for my second Milestone project with Code Institute. The game is designed to test a user's memory and is made up of a deck of cards, each card containing an image assigned randomly. The goal is to click on a card to reveal the image behind it, memorise the card containing that image and match cards with similar images until all 8 pairs are matched.
+As part of our Foundations of Software Engineering coursework, we have created a web-based memory game called "Christmas Matches" with a Christmas theme. The primary goal of this game is to evaluate a player's memory skills. It involves a deck of cards, each featuring a randomly assigned image. Players need to click on a card to reveal the image, memorize its location, and then match cards with identical images until all pairs have been successfully matched.
 
 <p align="center">
    <img src="images/appScreenshot.png" alt="screenshot of memory game"/>
@@ -27,39 +27,46 @@ This is a simple Memory Game Web Application created for my second Milestone pro
 
  ## Challenge
  
- The challenge is to match all the cards in as little time as possible, making the fewest selections possible
+ The challenge is to complete the matching of all the cards in the shortest amount of time while making the fewest possible selections.
 
 *** 
 
 ## Instructions
 
-* Click on a card
+* Select your preferred difficulty level (Easy, Medium, Hard) to initiate the game.
 
-* Continue revealing cards and working your memory to remember each unveiled card.
+* Click on the blocks to unveil the images hidden behind them. Continue this process with the remaining blocks, aiming to discover matching pairs.
 
-* Match cards properly with less moves and in faster time
+* Keep uncovering cards and put your memory to the test, remembering each card you reveal.
+
+* Efficiently match the cards with as few moves as possible and complete the game in the shortest time.
+
+* If needed, you can reset the game by using the "Reset" button.
+
+* Monitor the game's progress with the "Timer" displayed at the top.
+
+* To return to the home page, simply click the home button.
 
  ***
 
 ## Game Layout
 
-The index page is made up of a modal that contains instructions on how to play the game, and a button taking the user to the game page. The game itself is made up of a single page containing a header, a score panel that keeps tabs of performance indicators such as the time, the number of moves and the current star rating of the user, depending on the performance, and also contains the reset button.
+The index page is equipped with a modal providing instructions on how to play the game. It also features a "Start Game" button, which, when clicked, directs users to the game page. Users are given the choice to select their preferred difficulty level and begin playing from there. By default, clicking the "Start Game" button will lead users to the Easy level.
 
-The game board is made up of a deck division containing 16 cards which were created dynamically in javascript. Each card consists of a front face and a backface. On card hover, the card background lightens up slightly, and on card click, the card flips 180 degrees and reveals the image behind it, which the user then needs to memorise to improve performance. 
+The game page itself is inclusive of a header and a score panel that monitors various performance metrics, including time, moves, and the user's current star rating, which is determined by their performance. Additionally, a reset button is available to allow users to restart the game.
 
-The primary colours used in my palette were three shades of green (Emerald, Green Pantone, and lincoln green), two shades of yellow/orange (Orange web & Gold Web) for contrast, on a green & black vector background customized on svgbackgrounds.com. The cards have an image of a vector cartoon animal to convey a more "game" feel, as well as careful choice of multi-coloured vector icons on the backface of the cards to ensure colour diversity while maintaining a tri-coloured theme. 
+The game board is constructed using a card deck that adapts according to the selected difficulty level. These cards are generated dynamically through JavaScript. Each card is designed with a front and back face. When a user hovers over a card, its background brightens, and upon clicking, the card flips to reveal an image. It is crucial for players to memorize these images in order to enhance their performance.
 
 
 <p align="center">
    <img src="images/palette.png" alt="screenshot of colour palette"/>
 </p>
 
-A "Win-Game" Modal appears in the center of the screen upon completion of the game, providing feedback concerning grade, star rating and time taken to complete the game.
+Upon successfully completing the game, a "Win-Game" Modal emerges at the center of the screen, delivering feedback on the user's grade, star rating, and the time taken to finish the game.
 
-The deck of cards was designed using CSS grid, in order to ensure responsiveness.
+To ensure responsiveness, the card deck was created using CSS grid.
 
-Fonts used were Exo 2 and quicksand as they are very readable and game-friendly, conveying a slight comical feel which is appropriate to the goal of the game.
-
+For the game's text, the fonts Lobster and Georgia were chosen due to their high readability and game-friendly appearance. These fonts also convey a slightly comical feel, which aligns with the game's overall goal.
 ***
 
 ## Game Requirements
@@ -92,78 +99,71 @@ Fonts used were Exo 2 and quicksand as they are very readable and game-friendly,
  
 ## Game Logic 
 
-* An array that stores the image paths, which will be assigned to the cards and displayed on their backfaces.
+* An array is utilized to store image paths, which are then assigned to the cards and displayed on their backfaces.
 
-* An array that stores opened cards and an array that stores matched cards.
+* Two arrays are used: one to store opened cards and another to store matched cards.
 
-* Function that shuffles the images array when the game is loaded
+* There's a function responsible for shuffling the images array when the game is loaded.
 
-* A function that initiates the game which invokes the shuffle function, assigns random image onto each individual card and appends cards to the deck.
+* Another function initiates the game, which includes invoking the shuffle function, assigning random images to each card, and appending these cards to the deck.
 
-* A timer function which is called in the card eventListener that updates the innerHTML every 1 second interval from the moment a card is clicked.
+* A timer function is implemented and called in the card event listener, updating the innerHTML every 1-second interval from the moment a card is clicked.
 
-* A stopTime function that clears the time function interval.
+* A stopTime function is in place to clear the time function interval.
 
-* A reset function that resets all global variables and the content of HTML elements (timer, stars, moves, and their innerHTML) and empties all arrays.
+* A reset function is available to reset all global variables and the content of HTML elements, including the timer, stars, moves, and their innerHTML, while also emptying all arrays.
 
-* A movesCounter function that updates the number of moves made.
+* A movesCounter function is utilized to keep track of the number of moves made during the game.
 
-* A function that updates the star rating depending on the number of moves the player has made to complete the Game. 
+* A function is employed to update the star rating based on the number of moves made by the player to complete the game. The star rating decreases as the player makes more moves.
 
-* The number of starts will decrease the more moves a player makes. 
+* Another function is used to compare two cards in the openedCards array when its length is 2, determining whether they form a match or not. If they match, they are added to the matched cards array; otherwise, they are removed from the openedCards array.
 
-* A function that compares two cards in the openedCards array when its length is 2, and decides whether they're a match or a noMatch.
+* There is a function responsible for retrieving player statistics and providing feedback based on these statistics.
 
-* If they match, they will be pushed to the matched cards array, otherwise they will be removed from the openedCards array.
+* A function is employed to display the win-game modal.
 
-* A function that fetches the player stats, and provides appropriate feedback based on the stats.
+* The Win-game function displays the win-game modal when the game is completed, calls the stats function, and stops the timer function.
 
-* A function that displays the win-game modal.
-
-* A Win-game function that displays the win-game modal when game is completed, and calls the stats function and stoptimer function.
-
-* A function that handles clicked cards, applies flip animation, plays audio, reveals backface and adds card content to openedCards array.
+* A function is in place to handle clicked cards, apply a flip animation, play audio, reveal the backface, and add card content to the openedCards array.
 
 ***
 
 ## User Stories
-As a user, I would like to:
 
-* See a visually appealing, intuitive, challenging, fun game!
-* Be able to be 'competitive' and beat my own scores.
-* Click on any card as first card and clicked card should turn.
-* Click any card as second card and clicked card should turn.
-* Be given rewarding feedback when cards match (colour change and sound feedback) and cards remain visible.
-* See cards flip back when there is no match, and be given feedback to indicate no match.
-* Know the number of moves I have made so far and how long it has been since I started the game.
-* Get confirmation and performance feedback when the game is finished.
-* Grading system to encourage the user to try to beat own score (eg. success, pass, fail)
-* Have the option to play again, and reset card deck.
+As a user, my preferences include:
+
+* Enjoying a visually captivating and user-friendly game that offers a fun and challenging experience.
+* Expecting to be rated based on my performance, motivating me to improve.
+* Having the ability to click on any card to reveal it as the first card and then selecting another card, which should also turn to reveal its image.
+* Desiring the option to restart the game whenever I choose.
+* Experiencing a responsive game that I can enjoy on both mobile and desktop devices.
+* Relishing a Halloween-themed game to align with its title and create a festive atmosphere.
+* Receiving confirmation and performance feedback upon successfully completing the game, giving me a sense of accomplishment.
+* Wanting the flexibility to play at different difficulty levels, allowing me to tailor the game to my skill level.
+* Navigating through a main menu that lets me choose to start the game or access instructions.
 
 ***
 
 ## Features
 ### Existing features
 #### Home
-* Intuitve instructions modal.
-* Call to action: Encourage the user to take action. In the case of the home page, start the game.
+* An instructions modal that is easy to understand and navigate, guiding the user effectively.
+* A clear and compelling call to action that motivates the user to take the desired step, such as initiating the game on the home page.
 
 #### Game page
-* Game cards: clickable, and turn on click.
-* Game logic: in case there is a match, the cards animate and remain visible.
-* Moves counter: after each move (when two cards turned) the counter updates.
-* Game over modal.
-* Congratulations header.
-* Call to action: encourage the user to take action. In this case restart the game.
-* Evaluation/feedback messages: depending on performance.
-* Call to action: Encourage the user to take action. In this case to try again and beat your best score.
-* Reset score: Restart the game again at any stage.
+* Game cards that are interactive, clickable, and flip over when clicked.
+* The game's logic dictates that when a match is found, the cards animate and stay visible.
+* A moves counter keeps track of the number of moves, updating after each pair of cards is turned.
+* Upon completing the game, a game over modal appears, featuring a congratulatory header.
+* A compelling call to action prompts the user to restart the game.
+* Evaluation and feedback messages are presented based on the user's performance, encouraging them to try again and beat their best score.
+* The option to reset the score and restart the game is available at any stage.
 
 #### Features that can be implemented
-* High all-time board: show all time statistics of all users.
-* More game difficulty modes.
-* Auditory cues to assist memorisation.
-* Timed mode: add a timer to make the game more challenging, i.e. finish game before timer runs out.
+* A high all-time leaderboard displaying the overall statistics of all users.
+* Auditory cues designed to aid in memorization during gameplay.
+* The addition of a timed mode, introducing a timer to enhance the game's challenge, requiring players to finish the game before the timer expires.
 
 ***
 
@@ -192,11 +192,7 @@ Both the index and the home pages passed the HTML W3C Markup Validation Service 
 
 ### CSS
 
-Bothe the index and home pages passed the W3C CSS validation Service with no errors shown.
-
-### Javascript
-
-JSHint has returned back 51 warnings, however no problems with logic or syntax. The warnings are all related to the use of the let and const keywords, which is in itself not an issue. JSHint has recommended that those keywords are available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz), and I figured that I needed to tell JSHint that my code uses ECMAScript 6 specific syntax. However not all browsers implement them, so I didn't worry about the JSHint feedback, for as long as there are no logical or syntactical errors.
+Both the index and home pages passed the W3C CSS validation Service with no errors shown.
 
 ### Responsiveness
 
@@ -204,29 +200,11 @@ As a backup to using Chrome developer tools to check for responsiveness across m
 
 ***
 
-## Deployment
+## Setup Instructions for Local:
 
-### GitHub Pages
-
-To publish the website:
-
-* Open GitHub and go to your site's 'Repositories'.
-* Go to 'Settings'.
-* Scroll down until you see 'GitHub Pages'.
-* Under GitHub pages, click on the dropdown under 'Source' and select the 'Master Branch' option.
-* A green box should appear with the following message 'Your site is published at https://motazabdou.github.io/MS2-MemoryGame/'.
-
-
-### Cloning a Repository
-
-To clone the website from within your IDE:
-
-* Go to the main page of the GitHub repository and click on the dropdown menu 'Clone or download'.
-* Select 'Clone with HTTPS'.
-* Open the command line in your IDE.
-* Navigate to the directory where you want to clone the project.
-* Type 'git clone' followed by the copied URL: paste it right after 'git clone'.
-* Press 'Enter' and the local clone will be created
+* To obtain the repository, execute "Git clone git@github.com:HiralThadeshwar31/CPSC-8710-Memory-game.git" in your terminal.
+* Navigate to the game's directory by changing your current directory.
+* Launch the game locally by opening the index.html file in a web browser.
 
 ***
 
