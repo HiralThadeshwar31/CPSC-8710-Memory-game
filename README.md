@@ -6,7 +6,7 @@
 
 [GitHub Repo](https://github.com/HiralThadeshwar31/CPSC-8710-Memory-game)
 
-[Game Reflection]()
+[Game Reflection](https://github.com/HiralThadeshwar31/CPSC-8710-Memory-game/blob/main/images/Web%20Game%20Reflection.pdf)
   
 ## Index – Table of Contents 
 
